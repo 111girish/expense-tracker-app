@@ -1,3 +1,27 @@
 from django.db import models
 
 # Create your models here.
+class Expenses(models.Model):
+  CATEGORY_CHOICES = [
+    ('food', 'Food & Dining'),
+    ('transport', 'Transportation'),
+    ('utilities', 'Utilities'),
+    ('entertainment', 'Entertainment'),
+    ('health', 'Healthcare'),
+    ('shopping', 'Shopping'),
+    ('other', 'Other'),
+    ]
+  
+  title = models.CharField(max_length=200)
+  amount = models.DecimalField(max_digits=10, decimal_places=2)
+  category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+  date = models.DateField()
+  description = models.TextField(blank=True)
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now=True)
+
+  def __str__(self):
+    return f"{self.title} - {self.amount}"
+  
+  class Meta:
+    ordering = ["-date"]
