@@ -24,4 +24,4 @@ class Expenses(models.Model):
     return f"{self.title} - {self.amount}"
   
   class Meta:
-    ordering = ["-date"]
+    ordering = ["-created_at"]
