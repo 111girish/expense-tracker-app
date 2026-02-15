@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Expenses(models.Model):
+class Expense(models.Model):
   CATEGORY_CHOICES = [
     ('food', 'Food & Dining'),
     ('transport', 'Transportation'),
@@ -9,7 +9,7 @@ class Expenses(models.Model):
     ('entertainment', 'Entertainment'),
     ('health', 'Healthcare'),
     ('shopping', 'Shopping'),
-    ('other', 'Other'),
+    ('other', 'Others...'),
     ]
   
   title = models.CharField(max_length=200)

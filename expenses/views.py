@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Expenses
+from .models import Expense
 from .serializers import ExpenseSerializer
 
 # Create your views here.
@@ -12,7 +12,7 @@ def expense_list(request):
   """List all expenses, or create a new expense"""
   if request.method == "GET":
     #if request is get then get all the expenses in the model
-    expenses = Expenses.objects.all()
+    expenses = Expense.objects.all()
     #turn all the expenses to JSON format
     serializer = ExpenseSerializer(expenses, many=True)
     #return the serializer data
@@ -35,9 +35,9 @@ def expense_detail(request, pk):
   #try the following code which could be wrong
   try:
     #create a expense instance from the models.py by getting the primary key from the request
-    expense = Expenses.objects.get(pk=pk)
+    expense = Expense.objects.get(pk=pk)
     #if there is an error and expense doesnot exist then return response which says not found
-  except Expenses.DoesNotExist:
+  except Expense.DoesNotExist:
     return Response(
       {'error': 'Expense Not Found'},
       status=status.HTTP_404_NOT_FOUND

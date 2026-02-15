@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Expenses
+from .models import Expense
 # Register your models here.
 
-admin.site.register(Expenses)
+admin.site.register(Expense)
