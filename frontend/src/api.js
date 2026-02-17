@@ -8,17 +8,17 @@ export const getExpenses = async () => {
   return response.data;
 }
 
-export const postExpenses = async (expenseData) => {
+export const createExpense = async (expenseData) => {
   const response = await axios.post(API_URL, expenseData);
   return response.data;
 }
 
-export const updateExpenses = async (id, expenseData) => {
+export const updateExpense = async (id, expenseData) => {
   const response = await axios.put(`${API_URL}${id}`, expenseData);
   return response.data; 
 }
 
-export const deleteExpenses = async (id) => {
+export const deleteExpense = async (id) => {
   const response = await axios.delete(`${API_URL}${id}`);
   return response.data;
 }

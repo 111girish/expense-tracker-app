@@ -3,7 +3,7 @@ function ExpenseList({ expenses, onDelete, onEdit }) {
   if (expenses.length === 0) {
     return (
       <div className="bg-white rounded-lg p-10 text-center text-gray-500 mt-6 shadow">
-        <p className="text-lg">No expenses yet. Add your first expense above! 💰</p>
+        <p className="text-lg">No expenses yet. Add your first expense! 💰</p>
       </div>
     );
   }

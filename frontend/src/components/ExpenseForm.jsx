@@ -9,6 +9,7 @@ function ExpenseForm({ onSubmit, editingExpense, onCancelEdit }) {
     description: '',
   });
 
+
   // If editing, fill form with existing expense data
   useEffect(() => {
     if (editingExpense) {
@@ -18,7 +19,7 @@ function ExpenseForm({ onSubmit, editingExpense, onCancelEdit }) {
         title: '',
         amount: '',
         category: 'food',
-        date: '',
+        date: new Date().toISOString().split('T')[0],
         description: '',
       });
     }
