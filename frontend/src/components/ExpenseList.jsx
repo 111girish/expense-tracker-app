@@ -33,6 +33,7 @@ function ExpenseList({ expenses, onDelete, onEdit }) {
               <span className="font-medium text-gray-700">Category: </span>
               <span className="capitalize bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full text-sm">
                 {expense.category}
+                
               </span>
             </p>
             <p>
