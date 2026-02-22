@@ -21,14 +21,13 @@ def signup(request):
   return Response(serializer.errors, status=status.HTTP_404_BAD_REQUEST)
 
 
-
-
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])#requires login
 def expense_list(request):
   """List all expenses, or create a new expense"""
   if request.method == "GET":
     #if request is get then get all the expenses in the model
-    expenses = Expense.objects.all()
+    expenses = Expense.objects.filter(user=request.user) #filter by user
     #turn all the expenses to JSON format
     serializer = ExpenseSerializer(expenses, many=True)
     #return the serializer data
@@ -39,7 +38,7 @@ def expense_list(request):
     serializer = ExpenseSerializer(data=request.data)
     #if serializer is valid then save it to the database
     if serializer.is_valid():
-      serializer.save()
+      serializer.save(user=request.user)
       #if data is saved then return the saved data to react with id now
       return Response(serializer.data, status=status.HTTP_201_CREATED)
     #if data is not valid the return error
@@ -51,7 +50,7 @@ def expense_detail(request, pk):
   #try the following code which could be wrong
   try:
     #create a expense instance from the models.py by getting the primary key from the request
-    expense = Expense.objects.get(pk=pk)
+    expense = Expense.objects.get(pk=pk, user=request.user)
     #if there is an error and expense doesnot exist then return response which says not found
   except Expense.DoesNotExist:
     return Response(
