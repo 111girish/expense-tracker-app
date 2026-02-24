@@ -102,7 +102,7 @@ function Dashboard() {
           <div className="bg-red-100 text-red-700 border border-red-300 rounded-lg p-4 mb-6">
             ⚠️ {error}
           </div>
-        )}
+        )} 
 
         {/* Summary Card */}
         <div className="bg-white rounded-lg shadow p-5 mb-6 flex justify-between items-center">

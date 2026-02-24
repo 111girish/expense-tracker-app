@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
 import { getExpenses, createExpense, updateExpense, deleteExpense } from './api';
-import LoginPage from './components/LoginPage';
 
 
 function App() {
