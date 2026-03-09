@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Expense
-from .serializers import ExpenseSerializer
+from .serializers import ExpenseSerializer, UserSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 # Create your views here.
