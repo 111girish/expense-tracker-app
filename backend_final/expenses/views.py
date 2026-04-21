@@ -18,7 +18,7 @@ def signup(request):
       'message': 'User Created Succssfully',
       'user': serializer.data
     }, status=status.HTTP_201_CREATED)
-  return Response(serializer.errors, status=status.HTTP_404_BAD_REQUEST)
+  return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET', 'POST'])
